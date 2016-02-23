@@ -1,4 +1,4 @@
-# mse-store
+# Mister Stitch Embroidery
 Mister Stitch Embroidery - Store Website
 
 Heya guys!
