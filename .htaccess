@@ -6,3 +6,12 @@
 # Set XSS Protection header
 Header set X-XSS-Protection "1; mode=block"
 </IfModule>
+
+<IfModule mod_expires.c>
+    ExpiresActive on
+ 
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+</IfModule>
