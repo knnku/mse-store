@@ -44,8 +44,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		// Specify main and backup SMTP servers
 		$mail->Host = 'smtp.gmail.com';  
 		$mail->SMTPAuth = true;                               // Enable SMTP authentication
-		$mail->Username = 'tolatokenniku@gmail.com';          // SMTP username
-		$mail->Password = 'WismaAtria00';					  // SMTP password
+		$mail->Username = 'hidden';          // SMTP username
+		$mail->Password = 'hidden';					  // SMTP password
 		$mail->Port = 465;	                           	      // SMTP port
 		$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 		
@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$mail->Port = 587;                                    
 
 		// Add recipients
-		$mail->addAddress('inquiries@misterstitch.com');     
+		$mail->addAddress('hidden');     
 		//$mail->addCC('inquires@misterstitch.com');
 
 
