@@ -412,14 +412,180 @@
     });
 
 })(jQuery);
-!function() {
-	document.getElementsByClassName('engine')[0].getElementsByTagName('a')[0].removeAttribute('rel');
 
-    if(!document.getElementById('top-1')) {
-        var e = document.createElement("section");
-        e.id = "top-1";
-        e.className = "engine";
-        e.innerHTML = '<a href="https://mobirise.com">mobirise.com</a> Mobirise v2.8.3';
-        document.body.insertBefore(e, document.body.childNodes[0]);
+
+/*From MBR Gallery*/
+(function($) {
+
+    /* Masonry Grid */
+    $(document).on('add.cards change.cards', function(event) {
+        if(typeof $.fn.masonry !== 'undefined') {
+            $(event.target).outerFind('.mbr-gallery').each(function() {
+                var $msnr = $(this).find('.mbr-gallery-row').masonry({
+                    itemSelector: '.mbr-gallery-item',
+                    percentPosition: true
+                });
+
+                // reload masonry (need for adding new or resort items)
+                $msnr.masonry('reloadItems');
+
+                // layout Masonry after each image loads
+                $msnr.imagesLoaded().progress(function() {
+                    $msnr.masonry('layout');
+                });
+            });
+        }
+    });
+
+    var timeout;
+    function fitLBtimeout() {
+        clearTimeout(timeout);
+        timeout = setTimeout(fitLightbox, 50);
     }
-}();
+
+    /* Lightbox Fit */
+    function fitLightbox() {
+        var $lightbox = $('.mbr-gallery .modal');
+        if(!$lightbox.length) {
+            return;
+        }
+
+        var bottomPadding = 30;
+        var wndW = $(window).width();
+        var wndH = $(window).height();
+        $lightbox.each(function() {
+            var setWidth, setTop;
+            var isShown = $(this).hasClass('in');
+            var $modalDialog = $(this).find('.modal-dialog');
+            var $currentImg = $modalDialog.find('.item.active > img');
+
+            if($modalDialog.find('.item.prev > img, .item.next > img').length) {
+                $currentImg = $modalDialog.find('.item.prev > img, .item.next > img').eq(0);
+            }
+
+            var lbW = $currentImg[0].naturalWidth;
+            var lbH = $currentImg[0].naturalHeight;
+
+            // height change
+            if( wndW / wndH > lbW / lbH) {
+                var needH = wndH - bottomPadding * 2;
+                setWidth = needH * lbW / lbH;
+            }
+
+            // width change
+            else {
+                setWidth = wndW - bottomPadding * 2;
+            }
+
+            // check for maw width
+            setWidth = setWidth >= lbW ? lbW : setWidth;
+
+            // set top to vertical center
+            setTop = (wndH - bottomPadding * 2 - setWidth * lbH / lbW) / 2;
+
+            $modalDialog.css({
+                width: parseInt(setWidth),
+                top: setTop
+            });
+        });
+    }
+    // $(document).on('add.cards change.cards', fitLightbox);
+    $(window).on('resize load', fitLBtimeout);
+    $(window).on('show.bs.modal', fitLBtimeout);
+    $(window).on('slid.bs.carousel', fitLBtimeout);
+
+}(jQuery));
+
+$(document).ready(function()
+{
+  $(window).resize(function()
+  {
+    $('#FloatingSocialLinks').css(
+    {
+      // top: ($(window).height() / 2) - 256
+      top: "30%"
+    });
+  });
+ 
+  // call `resize` to center elements
+  $(window).resize();
+});
+
+// ---------------FORM Scripts---------------- //
+$(function() {
+
+
+
+    $(document).bind('ajaxStart', function(){
+        $('#btn-text').css("visibility", "hidden");
+        $('#btn-loader').addClass('btn-loader');
+        
+    }).bind('ajaxStop', function(){
+        $('#btn-text').css("visibility", "visible");
+        $('#btn-loader').removeClass('btn-loader');
+    });
+
+
+    // Set up an event listener for the contact form.
+    $('#contact').submit(function(e) {
+
+        $('#btn-submit').attr('disabled', true);
+        // Get the messages div.
+        var formMessages = $('#form-msg');
+
+        var formObj = $(this);
+        var formUrl = formObj.attr('action')
+        var formData = new FormData(this);
+
+        // Stop the browser from submitting the form.
+        e.preventDefault();
+
+        // Submit the form using AJAX.
+        $.ajax({
+            type: 'POST',
+            url: formUrl,
+            data: formData,
+            mimeType: "multipart/form-data",
+            processData: false,
+            contentType: false
+        })
+
+        .success (function(response) {
+
+            //Gets the response from PHPMailer and throws it into #form-msg div
+            $(formMessages).text(response).show();
+
+            $(formMessages).removeClass('alert alert-warning text-center');
+            $(formMessages).addClass('alert alert-success text-center');
+
+            //Clear the form when POST is success
+            $(formObj).trigger("reset");
+            $('#btn-submit').attr('disabled', false);
+
+        })
+
+        .error(function(data) {
+
+            $(formMessages).show();
+
+            $(formMessages).removeClass('alert alert-success text-center');
+            $(formMessages).addClass('alert alert-warning text-center');
+            
+            $('#btn-submit').attr('disabled', false);
+
+            // Set the message text.
+            if (data.responseText !== '') {
+                $(formMessages).text(data.responseText);
+            } else {
+                $(formMessages).text('Oops! An error occured and your message could not be sent.');
+            }
+        });
+
+    });
+
+    //Fades the alert div for 10 seconds then hides
+    $(document).ajaxComplete(function(){
+        $('#form-msg').fadeOut(9888);
+    });
+
+});

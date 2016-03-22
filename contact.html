@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- Site made with Mobirise Website Builder v2.8.3, https://mobirise.com -->
+
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="assets/images/favicon-72x72-64.png" type="image/x-icon">
-  <meta name="description" content="Lakeland Embroidery & Ad Specialty">
+  <meta name="description" content="Lakeland Embroidery &amp; Ad Specialty">
   <title>MSE - Contact Us</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:700,400&amp;subset=cyrillic,latin,greek,vietnamese">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/mobirise/css/style.css">
-  <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
-  
-  
+  <link rel="stylesheet" href="assets/socicon/css/socicon.min.css">   
   <!-- Paste any valid HTML code here. The code will be inserted to the end of <head> section, right before </head> -->
 </head>
 <body>
-<section class="mbr-navbar mbr-navbar--freeze mbr-navbar--absolute mbr-navbar--sticky mbr-navbar--auto-collapse" id="menu-11">
+
+<section class="mbr-navbar mbr-navbar--freeze mbr-navbar--sticky mbr-navbar--auto-collapse" id="menu-11">
     <div class="mbr-navbar__section mbr-section">
         <div class="mbr-section__container container">
             <div class="mbr-navbar__container">
@@ -27,7 +25,8 @@
                         
                     </span>
                 </div>
-                <div class="mbr-navbar__hamburger mbr-hamburger text-white"><span class="mbr-hamburger__line"></span></div>
+                <div class="mbr-navbar__hamburger mbr-hamburger text-white"><span class="mbr-hamburger__line"></span>
+                </div>
                 <div class="mbr-navbar__column mbr-navbar__menu">
                     <nav class="mbr-navbar__menu-box mbr-navbar__menu-box--inline-right">
                         <div class="mbr-navbar__column"><ul class="mbr-navbar__items mbr-navbar__items--right mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active mbr-buttons--only-links"> <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="index.html">HOME</a></li><li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="services.html">SERVICES</a></li><li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="contact.html">CONTACT US</a></li> <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="http://isgsigns.com">ISG</a></li></ul></div>
@@ -39,90 +38,142 @@
     </div>
 </section>
 
-<section class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-after-navbar" id="form1-26" style="background-color: rgb(255, 255, 255);">
+<section class="mbr-section mbr-section--relative mbr-section--fixed-size" id="form1-26">
     
     <div class="mbr-section__container mbr-section__container--std-padding container">
         <div class="row">
             <div class="col-sm-12">
-                <div class="row">
-                    <div class="col-sm-8 col-sm-offset-2" data-form-type="formoid">
-                        <div class="mbr-header mbr-header--center mbr-header--std-padding">
-                            <h2 class="mbr-header__text">We'd love to hear from you!<br><br></h2>
+                    <div class="col-sm-8">
+                        <div class="mbr-header mbr-header--std-padding">
+                            <span class="contact-header-text">We'd love to hear from you!<br></span>
                         </div>
-                        <div data-form-alert="true">
-                            <div class="hide" data-form-alert-success="true">Thanks! We'll give you a shout soon!</div>
+                        <div class="mbr-header--std-padding">
+                        <p class="mbr-article">Send us a message or details about a job you want us to do! Make sure to include a photo* of your logo or the project you want us to work on. Be sure to include all the details!</p>
                         </div>
-                        <form action="https://misterstitch.com/" method="post" data-form-title="We'd love to hear from you!">
-                            <input type="hidden" value="CxbapryKVVj05AqLXX8DfBkDfY89hn48h3tdGXhsNSR+x1+cMwzo+mIYfL4NHDo+5mM+zhOfGPUX3onDpsqvH775b4T4FSWvV/Vom5/fhxjFaZcuxMgh9X5GsPzLvgrE" data-form-email="true">
+                        
+                        <div id="form-msg"></div>
+                        <form id="contact" name="contact" enctype="multipart/form-data" method="POST" action="assets/mailer/mailer.php">
                             <div class="form-group">
-                                <input type="text" class="form-control" name="name" required="" placeholder="Name*" data-form-field="Name">
+                                <input type="text" class="form-control" name="name" id="name" required="" placeholder="Name*">
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" name="email" required="" placeholder="Email*" data-form-field="Email">
+                                <input type="email" class="form-control" name="email" id="email" required="" placeholder="Email*">
                             </div>
                             <div class="form-group">
-                                <input type="tel" class="form-control" name="phone" placeholder="Phone" data-form-field="Phone">
+                                <input type="tel" class="form-control" name="phone" id="phone" required="" placeholder="Phone*">
+                            </div>
+                            <div class="form-group hidden">
+                                <input type="address" class="form-control" name="address" id="address">
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" name="message" placeholder="Message" rows="7" data-form-field="Message"></textarea>
+                                <textarea class="form-control" name="message" id="message" required="" placeholder="Message*" rows="8"></textarea>
                             </div>
-                            <div class="mbr-buttons mbr-buttons--right"><button type="submit" class="mbr-buttons__btn btn btn-lg btn-danger">CONTACT US</button></div>
+                            
+                            <div class="form-group input-sm">
+                                <input  type="file" name="file" id="file"><em>*File requirements: Max size: 2MB. File types accepted: .jpg, .png, .gif, .svg, .pdf &amp; .doc.</em>
+                            </div>
+
+                            <div class="mbr-buttons mbr-buttons--right">
+                            <button id="btn-submit" type="submit" class="mbr-buttons__btn btn btn-lg btn-danger btn-loading">
+                            <span id="btn-loader" class=""></span>
+                            <span id="btn-text">SUBMIT</span>
+                            </button>
+                            </div>
+
                         </form>
                     </div>
+                    <div class="col-sm-3 col-sm-offset-1">
+                      <ul class="open-hours list-unstyled">
+                        <li id="orange">OPENING HOURS:</li><hr>
+                        <li>MON: 8:30AM - 5:00PM</li>
+                        <li>TUE: 8:30AM - 5:00PM</li>
+                        <li>WED: 8:30AM - 5:00PM</li>
+                        <li>THU: 8:30AM - 5:00PM</li>
+                        <li>FRI: 8:30AM - 5:00PM</li>
+                        <li>SAT: CLOSED</li>
+                        <li>MON: CLOSED</li>
+                        <br>
+                      </ul>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="mbr-section mbr-section--relative mbr-section--fixed-size" id="contacts2-6" style="background-color: rgb(51, 37, 50);">
+<section class="mbr-section mbr-section--relative mbr-section--fixed-size purple-bg" id="contacts2-6">
     
     <div class="mbr-section__container container">
-        <div class="mbr-contacts mbr-contacts--wysiwyg row">
-            <div class="col-sm-6">
+        <div class="mbr-contacts mbr-contacts--wysiwyg">
+            <div class="col-sm-4">
                 <figure class="mbr-figure mbr-figure--wysiwyg mbr-figure--full-width mbr-figure--no-bg">
                     <div class="mbr-figure__map mbr-figure__map--short mbr-google-map">
-                        <p class="mbr-google-map__marker" data-coordinates="54.268847,-110.775147">Our Location</p>
+                        <p class="mbr-google-map__marker" data-coordinates="54.268847,-110.775147">6401 50th Ave.</p>
                     </div>
                 </figure>
             </div>
-            <div class="col-sm-6">
-                <div class="row">
-                    <div class="col-sm-5 col-sm-offset-1">
+            <div class="col-sm-8">
+                    <div class="col-sm-3 col-sm-offset-1">
                         <ul class="mbr-contacts__list">
-                            <p><strong>ADDRESS</strong><br></p>
-                            <p>6401 50th Ave.<br>Bonnyville, AB<br>Canada T9N 2L9</p><br>
+                            <li><strong>ADDRESS</strong><br><li>
+                            <li>6401 50th Ave.<br>Bonnyville, AB<br>Canada T9N 2L9</li><br>
                         </ul>
                         <ul class="mbr-contacts__list">
-                            <p><strong>CONTACT INFO</strong><br></p>
-                            <p>Email: info[at]misterstitch[dot]com<br>Phone: +1 780-826-5015<br>Fax: +1 888-702-0914</p>
+                            <li><strong>CONTACT INFO</strong><br></li>
+                            <li>Toll Free:<br> +1 888-826-1949<br>Phone: +1 780-826-5015<br>Fax: +1 888-702-0914</li>
                         </ul>
 
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-3 col-sm-offset-1">
                         <ul class="mbr-contacts__list">
                             <li><strong>LINKS</strong><br></li>
                             <li><a class="text-white" href="index.html">Home</a></li>
                             <li><a class="text-white" href="services.html">Services</a></li>
-                            <li><a class="text-white" href="contact.html">Contact Us</a></li>
-                        </ul>
+                            <li><a class="text-white" href="contact.html">Contact Us</a><br><br></li>
+                        </ul>                        
                     </div>
-                </div>
+                    <div class="col-sm-3 col-sm-offset-1">                         
+                        <ul class="mbr-contacts__list">
+                            <li><strong>MEMBER OF:</strong><br></li>
+                            <li class="supplier"><a href="http://promocan.com" target="_blank"><img alt="Promotional Product Professionals of Canada" src="assets/images/pppc.svg"></a></li>
+                            <li class="supplier"><a href="http://www.asicentral.com/" target="_blank"><img alt="Advertising Specialty Institute" src="assets/images/asi.svg"></a></li>
+                            <li class="supplier"><a href="http://www.bonnyvillechamber.com/" target="_blank"><img alt="Bonnyville Chamber of Commerce" src="assets/images/chmbr.svg"></a></li>
+                        </ul>                      
+                    </div>
             </div>
         </div>
     </div>
+    
+    <div class="mbr-section__container container mbr-footer"><hr>
+        <div class="col-sm-6 col-sm-offset-3 text-center">
+                <div class="mbr-footer__copyright">All rights reserved. &copy;Mister Stitch 2015 | <a href="https://twitter.com/KNNKU" target="_blank">@KNNKU</a>
+                </div> 
+        </div>   
+    </div>
 </section>
-
-
+<section>
+    <div id="FloatingSocialLinks" data-position="left">
+        <div class="floatingsociallink facebook">
+            <a href="http://www.facebook.com/MSE.ISG" target="_blank">
+            <i class="inner-floatingsociallink socicon socicon-facebook text-white"></i>
+            </a>
+        </div>
+        <div class="floatingsociallink twitter">
+            <a href="http://twitter.com/mseisg" target="_blank">
+            <i class="inner-floatingsociallink socicon socicon-twitter text-white"></i>
+            </a>
+        </div>
+    </div>
+</section>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.4/SmoothScroll.min.js"></script>
   <script src="assets/web/assets/jquery/jquery.min.js"></script>
   <script src="assets/bootstrap/js/bootstrap.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js"></script>
-  <script src="assets/smooth-scroll/SmoothScroll.js"></script>
   <!--[if lte IE 9]>
-    <script src="assets/jquery-placeholder/jquery.placeholder.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-placeholder/2.3.1/jquery.placeholder.min.js"></script>
   <![endif]-->
   <script src="assets/mobirise/js/script.js"></script>
-  <script src="assets/formoid/formoid.min.js"></script>
   
   <!-- Paste any valid HTML code here. The code will be inserted to the end of <body> section, right before </body> -->
 </body>
