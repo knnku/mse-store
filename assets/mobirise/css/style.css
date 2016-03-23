@@ -813,10 +813,11 @@ html {
 .mbr-hero__text {
   font-weight: bold;
   left: -2px;
-  letter-spacing: 2.14px;
-  margin: -18px 0 1px 0;
+  letter-spacing: 1.14px;
+  margin: -8px 0 1px 0;
   padding-bottom: 41px;
   position: relative;
+  font-size: 28px;
 }
 .mbr-hero__subtext {
   font-size: 18px;
@@ -1455,7 +1456,8 @@ html {
   margin-bottom: 41px;
 }
 .mbr-plan__details {
-  padding-bottom: 41px;
+  padding-top: 28px;
+  padding-bottom: 28px;
 }
 .mbr-plan__details ul,
 .mbr-plan__list {
@@ -1465,7 +1467,7 @@ html {
 }
 .mbr-plan__details li,
 .mbr-plan__item {
-  line-height: 40px;
+  line-height: 28px;
   padding: 0 15px;
   text-align: center;
 }
