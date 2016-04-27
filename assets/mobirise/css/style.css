@@ -725,6 +725,7 @@ html {
 }
 
 
+
 @media all and (device-width: 420px) and (device-height: 568px) and (orientation: portrait) {
   .mbr-arrow {
     bottom: 31px;
@@ -773,7 +774,7 @@ html {
   text-align: right;
 }
 .mbr-box__container {
-  height: 50%;
+  height: 100%;
 }
 
 @media (max-width: 767px) {
