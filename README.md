@@ -1,10 +1,10 @@
 # Mister Stitch Embroidery
 Mister Stitch Embroidery - Store Website
 
-Heya guys!
+Hey!
 
 This is the my first live commercial website.
-Used a website generator for quick deployment.
+Used bootstrap for quick deployment.
 
 Any info, tips & guides would be greatly appreciated.
 
